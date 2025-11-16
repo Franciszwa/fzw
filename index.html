@@ -229,6 +229,27 @@
     setInterval(updateClock, 1000); // هر ۱ ثانیه یکبار ساعت رو آپدیت می‌کنه
     updateClock(); // برای اولین بار ساعت رو بلافاصله نشون بده
 </script>
+<!-- Open in external browser button -->
+<div style="display:flex;justify-content:center;margin-top:18px;">
+  <button id="open-external" style="
+    background: linear-gradient(90deg,#8a00ff,#ff3bd4);
+    color: white;
+    padding:12px 20px;
+    border-radius:12px;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow: 0 10px 30px rgba(138,0,255,0.25);
+  ">
+    Open in Chrome
+  </button>
+</div>
 
+<script>
+  document.getElementById('open-external').addEventListener('click', function(e) {
+    // باز کردن در تب/مرورگر جدید — تلگرام وقتی این رو ببیند مرورگر سیستم را باز می‌کند
+    window.open('https://franciszwa.github.io/fzw', '_blank', 'noopener,noreferrer');
+  });
+</script>
 </body>
 </html>
