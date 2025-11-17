@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@Franciszw</title>
+    <title>@FranciszW</title>
 
     <style>
         * {
@@ -26,7 +26,7 @@
             height: 100vh;
             overflow: hidden;
             position: relative;
-            background-image: url('background-image.jpg'); /* مسیر نسبی */
+            background-image: url('file:///storage/emulated/0/zero/background-image.jpg'); /* مسیر نسبی */
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
@@ -55,7 +55,7 @@
             width: 130px;
             height: 130px;
             border-radius: 50%;
-            background: url('profile.jpg'); /* مسیر نسبی */
+            background: url('file:///storage/emulated/0/zero/profile.jpg'); /* مسیر نسبی */
             background-size: cover;
             background-position: center;
             box-shadow: 0 0 30px #ffffff;
@@ -106,7 +106,7 @@
             width: 65px;
             height: 65px;
             border-radius: 15px;
-            background: #b300ff;
+            background: #ffffff; /* رنگ پس زمینه دکمه‌ها سفید */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -121,7 +121,7 @@
 
         .btn img {
             width: 35px;
-            filter: invert(1);
+            filter: invert(0); /* حذف فیلتر معکوس رنگ */
         }
     </style>
 </head>
@@ -129,7 +129,7 @@
 
 <!-- 📌 آهنگ — فایل باید اسمش music.mp3 باشه → خودکار پخش می‌شود -->
 <audio id="autoMusic" autoplay>
-    <source src="music.mp3" type="audio/mp3"> <!-- مسیر نسبی موزیک -->
+    <source src="file:///storage/emulated/0/zero/music.mp3" type="audio/mp3"> <!-- مسیر موزیک -->
 </audio>
 
 <div class="center-box">
