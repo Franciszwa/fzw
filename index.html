@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>@Franciszw</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background-image: url('background-image.jpg'); /* مسیر نسبی */
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        .center-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 460px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            box-shadow: 0 0 40px #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: url('profile.jpg'); /* مسیر نسبی */
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 0 30px #ffffff;
+        }
+
+        .name-time {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8000ff;
+            text-align: center;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 0 0 10px #8000ff, 0 0 20px #8000ff, 0 0 30px #ff00ff;
+        }
+
+        .time {
+            font-size: 24px;
+            font-weight: normal;
+            color: #ff0080;
+            text-shadow: 0 0 10px #ff0080, 0 0 20px #ff0080;
+        }
+
+        .dynamic-text {
+            font-size: 24px;
+            color: #00ff00;
+            margin-top: 30px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 18px;
+            width: 100%;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            width: 65px;
+            height: 65px;
+            border-radius: 15px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px #ffffff;
+            transition: .25s;
+        }
+
+        .btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 30px #ff00f7;
+        }
+
+        .btn img {
+            width: 35px;
+            filter: invert(1);
+        }
+    </style>
+</head>
+<body>
+
+<!-- 📌 آهنگ — فایل باید اسمش music.mp3 باشه → خودکار پخش می‌شود -->
+<audio id="autoMusic" autoplay>
+    <source src="music.mp3" type="audio/mp3"> <!-- مسیر نسبی موزیک -->
+</audio>
+
+<div class="center-box">
+    <div class="circle"></div>
+
+    <!-- 📌 نام Amir و ساعت کنار هم -->
+    <div class="name-time">
+        <div class="name">AMIR</div>
+        <div id="clock" class="time">03:10</div>
+    </div>
+
+    <!-- 📌 متن زیر اسم -->
+    <div class="text-box">STRONGER THAN YESTERDAY</div>
+
+    <!-- 📌 متنی که تغییر میکنه -->
+    <div class="dynamic-text" id="dynamic-text">HTML</div>
+
+    <!-- 📌 دکمه‌ها -->
+    <div class="buttons">
+        <a href="https://t.me/AmirFF_777" target="_blank" class="btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/telegram-app.png"></a>
+        <a href="https://t.me//Franciszw" target="_blank" class="btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/link.png"></a>
+        <a href="https://github.com/Franciszwa" target="_blank" class="btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/github.png"></a> <!-- دکمه جدید 1 -->
+        <a href="https://www.instagram.com/amirm._.2006" target="_blank" class="btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png"></a> <!-- دکمه جدید 2 -->
+    </div>
+</div>
+
+<script>
+    const audio = document.getElementById('autoMusic');
+    let playing = false;
+
+    // وقتی صفحه لمس بشه، آهنگ پخش میشه
+    window.addEventListener('click', function() {
+        if (!playing) {
+            audio.play().then(() => {
+                playing = true;
+            }).catch((err) => {
+                console.log('Audio play failed:', err);
+            });
+        }
+    });
+
+    // ساعت واقعی
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const time = `${hours}:${minutes}`;
+        document.getElementById('clock').textContent = time;
+    }
+
+    setInterval(updateClock, 1000); // هر ۱ ثانیه یکبار ساعت رو آپدیت می‌کنه
+    updateClock(); // برای اولین بار ساعت رو بلافاصله نشون بده
+
+    // لیست متنی که تغییر میکنه
+    const texts = ['HTML', 'CSS', 'Python', 'JSON'];
+    let currentTextIndex = 0;
+
+    function changeText() {
+        // تغییر متن و رنگ
+        const dynamicTextElement = document.getElementById('dynamic-text');
+        dynamicTextElement.innerHTML = texts[currentTextIndex];
+        currentTextIndex = (currentTextIndex + 1) % texts.length;
+    }
+
+    setInterval(changeText, 1000); // هر ۱ ثانیه یکبار متن تغییر میکنه
+    changeText(); // برای اولین بار تغییرات رو بلافاصله اعمال کن
+</script>
+
+</body>
+</html>
