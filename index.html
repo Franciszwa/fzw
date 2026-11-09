@@ -3,7 +3,8 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
     <title>@Franciszw</title>
 
     <style>
@@ -13,39 +14,56 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html {
             width: 100%;
             height: 100%;
             overflow: hidden;
-            position: fixed;
-            inset: 0;
             overscroll-behavior: none;
         }
 
         body {
             font-family: Arial, sans-serif;
             color: #fff;
+
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+
+            overflow: hidden;
+            overscroll-behavior: none;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             background-image: url('background-image.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-color: #000;
         }
 
         .center-box {
             position: relative;
+
             width: min(350px, calc(100vw - 30px));
             height: min(460px, calc(100dvh - 30px));
+
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
             border-radius: 25px;
             box-shadow: 0 0 40px #FFFDF8;
+
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
+
             padding: 30px 20px;
             text-align: center;
         }
@@ -54,8 +72,11 @@
             width: 130px;
             height: 130px;
             flex-shrink: 0;
+
             border-radius: 50%;
-            background: url('profile.jpg') center/cover;
+
+            background: url('profile.jpg') center/cover no-repeat;
+
             box-shadow: 0 0 30px #F5F9FF;
         }
 
@@ -70,15 +91,25 @@
         .name {
             font-size: 24px;
             font-weight: bold;
+
             color: #B3ECFF;
             letter-spacing: 5px;
-            text-shadow: 0 0 15px #CCF2FF, 0 0 25px #B3ECFF;
+
+            text-shadow:
+                0 0 15px #CCF2FF,
+                0 0 25px #B3ECFF,
+                0 0 30px #B3ECFF;
         }
 
         .time {
             font-size: 24px;
+            font-weight: normal;
+
             color: #ff0080;
-            text-shadow: 0 0 10px #ff0080, 0 0 20px #ff0080;
+
+            text-shadow:
+                0 0 10px #ff0080,
+                0 0 20px #ff0080;
         }
 
         .text-box {
@@ -91,14 +122,18 @@
         .dynamic-text {
             font-size: 24px;
             color: #00ff00;
+
             margin-top: 20px;
+
             font-family: 'Courier New', monospace;
         }
 
         .buttons {
             display: flex;
             gap: 18px;
+
             width: 100%;
+
             justify-content: center;
             margin-top: 20px;
         }
@@ -106,13 +141,19 @@
         .btn {
             width: 65px;
             height: 65px;
+            flex-shrink: 0;
+
             border-radius: 15px;
             background: #ffffff;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             box-shadow: 0 0 20px #FFFDF8;
+
             transition: .25s;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .btn:hover {
@@ -122,85 +163,144 @@
 
         .btn img {
             width: 35px;
+            height: 35px;
+            object-fit: contain;
             filter: invert(1);
         }
+
+        /* سازگاری با نمایشگرهای کوتاه */
+
+        @media (max-height: 500px) {
+            .center-box {
+                padding: 15px;
+            }
+
+            .circle {
+                width: 90px;
+                height: 90px;
+            }
+
+            .name-time {
+                margin-top: 5px;
+            }
+
+            .buttons {
+                margin-top: 5px;
+            }
+
+            .btn {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-<audio id="autoMusic" autoplay>
-    <source src="music.mp3" type="audio/mp3">
-</audio>
+    <audio id="autoMusic" autoplay loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
-<div class="center-box">
+    <div class="center-box">
 
-    <div class="circle"></div>
+        <div class="circle"></div>
 
-    <div class="name-time">
-        <div class="name">AMIR</div>
-        <div id="clock" class="time">03:10</div>
+        <div class="name-time">
+            <div class="name">AMIR</div>
+            <div id="clock" class="time">03:10</div>
+        </div>
+
+        <div class="text-box">
+            NOTHING IS COINCIDENCE
+        </div>
+
+        <div class="dynamic-text" id="dynamic-text">
+            HTML
+        </div>
+
+        <div class="buttons">
+
+            <a href="https://t.me/AmirFF_777"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/telegram-app.png"
+                     alt="Telegram">
+            </a>
+
+            <a href="https://t.me/Franciszw"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/link.png"
+                     alt="Link">
+            </a>
+
+            <a href="https://www.instagram.com/amirm._.2006"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png"
+                     alt="Instagram">
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="text-box">NOTHING IS COINCIDENCE</div>
+    <script>
 
-    <div class="dynamic-text" id="dynamic-text">HTML</div>
+        // پخش موزیک با اولین تعامل کاربر
 
-    <div class="buttons">
+        const audio = document.getElementById('autoMusic');
+        let playing = false;
 
-        <a href="https://t.me/AmirFF_777" target="_blank" class="btn">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/telegram-app.png">
-        </a>
-
-        <a href="https://t.me/Franciszw" target="_blank" class="btn">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/link.png">
-        </a>
-
-        <a href="https://www.instagram.com/amirm._.2006" target="_blank" class="btn">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png">
-        </a>
-
-    </div>
-</div>
-
-<script>
-    const audio = document.getElementById('autoMusic');
-    let playing = false;
-
-    window.addEventListener('click', function() {
-        if (!playing) {
-            audio.play().then(() => {
-                playing = true;
-            }).catch(console.log);
+        function startMusic() {
+            if (!playing) {
+                audio.play().then(() => {
+                    playing = true;
+                }).catch(() => {});
+            }
         }
-    });
 
-    function updateClock() {
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
+        document.addEventListener('click', startMusic, { once: true });
+        document.addEventListener('touchstart', startMusic, { once: true });
 
-        document.getElementById('clock').textContent =
-            `${hours}:${minutes}`;
-    }
+        // ساعت واقعی
 
-    setInterval(updateClock, 1000);
-    updateClock();
+        function updateClock() {
+            const now = new Date();
 
-    const texts = ['HTML', 'CSS', 'Python', 'JSON'];
-    let currentTextIndex = 0;
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
 
-    function changeText() {
-        document.getElementById('dynamic-text').textContent =
-            texts[currentTextIndex];
+            document.getElementById('clock').textContent =
+                `${hours}:${minutes}`;
+        }
 
-        currentTextIndex =
-            (currentTextIndex + 1) % texts.length;
-    }
+        updateClock();
+        setInterval(updateClock, 1000);
 
-    setInterval(changeText, 1000);
-    changeText();
-</script>
+        // تغییر متن برنامه‌نویسی
+
+        const texts = ['HTML', 'CSS', 'Python', 'JSON'];
+
+        let currentTextIndex = 0;
+
+        function changeText() {
+            document.getElementById('dynamic-text').textContent =
+                texts[currentTextIndex];
+
+            currentTextIndex =
+                (currentTextIndex + 1) % texts.length;
+        }
+
+        changeText();
+        setInterval(changeText, 1000);
+
+    </script>
 
 </body>
 </html>
